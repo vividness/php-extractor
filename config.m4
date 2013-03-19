@@ -1,5 +1,5 @@
-PHP_ARG_WITH(extractor, whether to enable Extractor extension,
-[  --enable-extractor   Enable Extractor extension])
+PHP_ARG_WITH(php-extractor, whether to enable PHP-Extractor extension,
+[  --enable-php-extractor   Enable PHP-Extractor extension])
 
 if test "$PHP_EXTRACTOR" != "no"; then
     AC_MSG_CHECKING([for extractor headers])
@@ -18,7 +18,10 @@ if test "$PHP_EXTRACTOR" != "no"; then
     PHP_ADD_INCLUDE($PHP_EXTRACTOR_DIR/include)
     AC_CHECK_HEADER([extractor.h], [], AC_MSG_ERROR['extractor.h' header not found])
     PHP_ADD_LIBRARY(extractor, 1, EXTRACTOR_SHARED_LIBADD)
-dnl    PHP_ADD_LIBRARY_WITH_PATH(extract, $PHP_EXTRACTOR_DIR/lib, EXTRACTOR_SHARED_LIBADD)
+
+    dnl May need this at some point
+    dnl PHP_ADD_LIBRARY_WITH_PATH(extract, $PHP_EXTRACTOR_DIR/lib, EXTRACTOR_SHARED_LIBADD)
+    dnl 
 
     AC_CHECK_LIB(extractor, EXTRACTOR_plugin_add_defaults, 
     [
@@ -28,5 +31,5 @@ dnl    PHP_ADD_LIBRARY_WITH_PATH(extract, $PHP_EXTRACTOR_DIR/lib, EXTRACTOR_SHAR
     ],)
 
     PHP_SUBST(EXTRACTOR_SHARED_LIBADD)
-    PHP_NEW_EXTENSION(extractor, extractor.c, $ext_shared)
+    PHP_NEW_EXTENSION(extractor, php_extractor.c, $ext_shared)
 fi
