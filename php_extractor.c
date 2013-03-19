@@ -3,16 +3,16 @@
 #include "php_extractor.h"
 
 /* Define functs we want to add */
-zend_function_entry php_extractor_functions[] = {
+zend_function_entry extractor_functions[] = {
     PHP_FE(extractor_get_keywords, NULL)
     {NULL, NULL, NULL}
 };
 
 /* Module entry definitions */
-zend_module_entry php_extractor_module_entry = {
+zend_module_entry extractor_module_entry = {
     STANDARD_MODULE_HEADER,
     PHP_EXTRACTOR_EXTNAME,
-    php_extractor_functions,
+    extractor_functions,
     NULL,
     NULL,
     NULL,
@@ -23,7 +23,7 @@ zend_module_entry php_extractor_module_entry = {
 };
 
 /* Install module */
-ZEND_GET_MODULE(php_extractor)
+ZEND_GET_MODULE(extractor)
 
 static int process_keyword (void *cls, const char *plugin_name, 
                      enum EXTRACTOR_MetaType type, 

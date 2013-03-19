@@ -1,5 +1,5 @@
-PHP_ARG_WITH(php-extractor, whether to enable PHP-Extractor extension,
-[  --enable-php-extractor   Enable PHP-Extractor extension])
+PHP_ARG_WITH(extractor, whether to enable PHP-Extractor extension,
+[  --enable-extractor   Enable PHP-Extractor extension])
 
 if test "$PHP_EXTRACTOR" != "no"; then
     AC_MSG_CHECKING([for extractor headers])
