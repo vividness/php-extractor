@@ -3,8 +3,6 @@ Test extractor_get_keywords() return value for a non existent file.
 --DESCRIPTION--
 This tests covers keyword extraction
 for an empty file.
---SKIPIF--
-<?php if (!file_exists(__DIR__ . "./test.jpg")) die("Test JPG File not found!"); ?>
 --FILE--
 <?php
 $test_filepath = '';
