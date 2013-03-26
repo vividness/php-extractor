@@ -31,17 +31,21 @@ static int process_keyword (void *cls, const char *plugin_name,
                      const char *data_mime_type, 
                      const char *data, size_t data_len) {
     
-    zval *keywords;
+    zval *keywords, **subarray;
     const char *ktype = EXTRACTOR_metatype_to_string(type);
     const char *kval  = estrndup(data, data_len);
     
-    /*DEBUG: php_printf("%s - %s\n", ktype, kval);*/
     ALLOC_INIT_ZVAL(keywords);
     array_init(keywords);
 
-    add_assoc_string(keywords, ktype, kval, 1);
-    add_next_index_zval(cls, keywords);    
+    if (zend_hash_find(Z_ARRVAL_P((zval*) cls), ktype, strlen(ktype) + 1, (void**) &subarray) == SUCCESS) {
+        add_next_index_string(*subarray, kval, 1);
+        return 0;
+    }
     
+    add_next_index_string(keywords, kval, 1);
+    add_assoc_zval(cls, ktype, keywords);
+
     return 0;
 }
 
