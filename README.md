@@ -40,14 +40,49 @@ Usage
 -----
 
 A simple usage example.
-   
-    <?php 
-      
-      $filepath = "/path/to/a/file.ext";
+
+    <?php
+      $filepath = '/tmp/test.tgz';
       $keywords = extractor_get_keywords($filepath);
       
       print_r($keywords);
     ?>
+    
+This will output:
+    
+      Array
+      (
+          [embedded filename] => Array
+              (
+                  [0] => libextractor-1.0.0/
+                  [1] => libextractor-1.0.0/ABOUT-NLS
+                  [2] => libextractor-1.0.0/README
+                  [3] => libextractor-1.0.0/compile
+                  [4] => libextractor-1.0.0/config.guess
+                  [5] => libextractor-1.0.0/doc/
+                  [6] => libextractor-1.0.0/doc/Makefile.am
+                  [7] => libextractor-1.0.0/doc/stamp-vti
+                  [8] => libextractor-1.0.0/doc/libextractor.texi
+                  [9] => libextractor-1.0.0/doc/libextractor.3
+                  [10] => libextractor-1.0.0/doc/version.texi
+              )
+      
+          [creation date] => Array
+              (
+                  [0] => 2012-09-25T19:29:45Z
+              )
+      
+          [format version] => Array
+              (
+                  [0] => UNIX extended V7 TAR
+              )
+      
+          [mimetype] => Array
+              (
+                  [0] => application/x-tar
+              )
+      )
+    
 
 Contributing
 ------------
