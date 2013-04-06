@@ -5,7 +5,7 @@ compiler:
   - clang
 
 before_install:
-  - "sudo apt-get install php-dev"
+  - "sudo apt-get install php5-dev"
   - "sudo apt-get install libextractor-dev"
 
 before_script: 
