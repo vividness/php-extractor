@@ -1,17 +1,15 @@
 language: c
 
-compiler:
-  - gcc
-  - clang
+compiler: gcc
 
 before_install:
-  - "sudo apt-get install php5-dev"
-  - "sudo apt-get install extract"
-  - "sudo apt-get install libextractor-dev"
+  - "sudo apt-get install -qq php5-dev"
+  - "sudo apt-get install -qq extract"
+  - "sudo apt-get install -qq libextractor-dev"
 
 before_script: 
   - "phpize"
   - "./configure"
   - "make"
 
-script: "make test" 
+script: "make test"
