@@ -6,7 +6,7 @@ compiler:
 
 before_install:
   - "sudo apt-get install php5-dev"
-  - "sudo apt-get install libextractor3"
+  - "sudo apt-get install extract"
   - "sudo apt-get install libextractor-dev"
 
 before_script: 
