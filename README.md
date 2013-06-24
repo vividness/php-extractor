@@ -41,13 +41,15 @@ Usage
 
 A simple usage example.
 
-    <?php
-      $filepath = '/tmp/test.tgz';
-      $keywords = extractor_get_keywords($filepath);
-      
-      print_r($keywords);
-    ?>
-    
+```php
+<?php
+   $filepath = '/tmp/test.tgz';
+   $keywords = extractor_get_keywords($filepath);
+   
+   print_r($keywords);
+?>
+```
+
 This will output:
     
       Array
